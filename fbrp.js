@@ -1,4 +1,5 @@
-parse("Song of Solomon 3 16-17, 17-18");
+var obj = parse("Song of Solomon 3 16-17, 17-18");
+console.log(obj);
 
 // Note that we can't actually use this, since
 // JavaScript has no good #define alternative
@@ -96,7 +97,6 @@ function parse(reference) {
 		// When we get to a multiple or range part,
 		// skip as it has detected that before.
 		if (parts[p].type == 4 || parts[p].type == 5) {
-			console.log("Skip");
 			continue;
 		}
 
@@ -190,8 +190,8 @@ function parse(reference) {
 			set(referenceObj, "end", currentlyOn, parseInt[0], 1);
 		}
 	}
-
-	console.log(referenceObj);
+	
+	return referenceObj;
 }
 
 function set(reference, part, currentlyOn, value, append) {
